@@ -32,12 +32,17 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	const appConstants = new global.AppConstants();
-	
-	if(gs.getUser().hasRole( appConstants.RoleSecurityOfficer ))
+	// If Confidential value not changed or user does not have the role, stop the check
+	const isCheckNotNeeded = current[appConstants.FieldConfidential] === current[appConstants.FieldConfidential] || gs.getUser().hasRole( appConstants.RoleSecurityOfficer );
+
+	if(isCheckNotNeeded)
 		return;
 	
-	if(current[appConstants.FieldAssignedTo]?.nil()) {
-		gs.addErrorMessage();
+	const isConfidential = current.getValue(appConstants.FieldConfidential);
+	const isAssignedToNull = current[appConstants.FieldAssignedTo]?.nil();
+
+	if(isConfidential && isAssignedToNull) {
+		gs.addErrorMessage(gs.getMessage('custom_prevent_confidential_without_assigned_to'));
 		current.setAbortAction(true);
 	}
 
@@ -48,7 +53,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>19ff6942471c0f10a0948c64116d43ef</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>STRY0012717 Make AssignedTo mandatory</sys_name>
         <sys_overrides/>
         <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
@@ -56,7 +61,7 @@
         <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
         <sys_update_name>sys_script_19ff6942471c0f10a0948c64116d43ef</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-04-18 13:16:02</sys_updated_on>
+        <sys_updated_on>2026-04-18 14:19:01</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
