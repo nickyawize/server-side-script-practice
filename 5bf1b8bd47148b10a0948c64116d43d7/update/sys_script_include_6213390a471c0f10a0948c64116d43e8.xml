@@ -15,7 +15,12 @@ AppConstants.prototype = {
     initialize: function() {
     },
 
+	// Roles
 	RoleSecurityOfficer: 'security_officer',
+
+	// Fields
+	FieldAssignedTo: 'assigned_to',
+	FieldConfidential: 'u_confidential',
 
     type: 'AppConstants'
 };]]></script>
@@ -23,14 +28,14 @@ AppConstants.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-04-18 13:02:40</sys_created_on>
         <sys_id>6213390a471c0f10a0948c64116d43e8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>AppConstants</sys_name>
         <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
         <sys_update_name>sys_script_include_6213390a471c0f10a0948c64116d43e8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-04-18 13:02:40</sys_updated_on>
+        <sys_updated_on>2026-04-18 13:20:36</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>6213390a471c0f10a0948c64116d43e8</id>
