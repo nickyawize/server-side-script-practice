@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.AppConstants</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>AppConstants</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var AppConstants = Class.create();
+
+AppConstants.prototype = {
+    initialize: function() {
+    },
+
+	// Roles
+	RoleSecurityOfficer: 'security_officer',
+
+	// Fields
+	FieldAssignedTo: 'assigned_to',
+	FieldConfidential: 'u_confidential',
+
+    type: 'AppConstants'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 13:02:40</sys_created_on>
+        <sys_id>6213390a471c0f10a0948c64116d43e8</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>AppConstants</sys_name>
+        <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
+        <sys_update_name>sys_script_include_6213390a471c0f10a0948c64116d43e8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 13:20:36</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>6213390a471c0f10a0948c64116d43e8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 13:02:39</sys_created_on>
+        <sys_id>8404790a471c0f10a0948c64116d4379</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 13:02:39</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</application>
+        <file_path/>
+        <instance_id>199e5a32ff5c6e5cc812f8e4fc4fd9be</instance_id>
+        <instance_name>dev302496</instance_name>
+        <name>sys_script_include_6213390a471c0f10a0948c64116d43e8</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;
+    &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
+        &lt;access&gt;package_private&lt;/access&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;api_name&gt;global.AppConstants&lt;/api_name&gt;
+        &lt;caller_access/&gt;
+        &lt;client_callable&gt;false&lt;/client_callable&gt;
+        &lt;description/&gt;
+        &lt;mobile_callable&gt;false&lt;/mobile_callable&gt;
+        &lt;name&gt;AppConstants&lt;/name&gt;
+        &lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;
+        &lt;script&gt;&lt;![CDATA[var AppConstants = Class.create();
+
+AppConstants.prototype = {
+    initialize: function() {
+    },
+
+	// Roles
+	RoleSecurityOfficer: 'security_officer',
+
+	// Fields
+	FieldAssignedTo: 'assigned_to',
+	FieldConfidential: 'u_confidential',
+
+    type: 'AppConstants'
+};]]&gt;&lt;/script&gt;
+        &lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2026-04-18 13:02:40&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;6213390a471c0f10a0948c64116d43e8&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;AppConstants&lt;/sys_name&gt;
+        &lt;sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7"&gt;5bf1b8bd47148b10a0948c64116d43d7&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Server side script practice"&gt;5bf1b8bd47148b10a0948c64116d43d7&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_script_include_6213390a471c0f10a0948c64116d43e8&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2026-04-18 13:20:36&lt;/sys_updated_on&gt;
+    &lt;/sys_script_include&gt;
+    &lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;
+        &lt;id&gt;6213390a471c0f10a0948c64116d43e8&lt;/id&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2026-04-18 13:02:39&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;8404790a471c0f10a0948c64116d4379&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2026-04-18 13:02:39&lt;/sys_updated_on&gt;
+        &lt;table&gt;sys_script_include&lt;/table&gt;
+        &lt;use_es_latest&gt;true&lt;/use_es_latest&gt;
+    &lt;/sys_es_latest_script&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>1429733665</payload_hash>
+        <record_name>AppConstants</record_name>
+        <reverted_from/>
+        <source/>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 13:23:34</sys_created_on>
+        <sys_id>1ec8f506475c0f10a0948c64116d43cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19da0c2ccdf0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 13:23:34</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>dac8f506e55c0f1077fd58887b5a88cf</update_guid>
+        <update_guid_history>2a887dc22c5c0f104116ce5a8affe834:0,b218b982d85c0f10358ff001b978653e:-662197025,5804f58a721c0f10e7b1df31ef2a2a21:1898386458</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 14:57:16</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>cfd9c8389ccc4687b0f104553ad12571</sys_id>
+        <sys_metadata>6213390a471c0f10a0948c64116d43e8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AppConstants</sys_name>
+        <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
+        <sys_scope_delete display_value="">531a20b8af0f4227aae22cb0599d64f1</sys_scope_delete>
+        <sys_update_name>sys_script_include_6213390a471c0f10a0948c64116d43e8</sys_update_name>
+        <sys_update_version display_value="sys_script_include_6213390a471c0f10a0948c64116d43e8">1ec8f506475c0f10a0948c64116d43cf</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 14:57:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
