@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application/>
+        <code/>
+        <commented_message/>
+        <key>custom_cannot_update_confidential</key>
+        <language>en</language>
+        <message>You cannot update this incident marked confidential</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-17 23:20:06</sys_created_on>
+        <sys_id>a977b6b94754cb10a0948c64116d43e9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>custom_cannot_update_confidential</sys_name>
+        <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
+        <sys_update_name>sys_ui_message_a977b6b94754cb10a0948c64116d43e9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-17 23:20:06</sys_updated_on>
+    </sys_ui_message>
+</record_update>
