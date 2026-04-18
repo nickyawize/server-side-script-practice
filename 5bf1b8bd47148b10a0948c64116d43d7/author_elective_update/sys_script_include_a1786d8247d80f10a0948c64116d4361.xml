@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.ServerUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>ServerUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var ServerUtils = Class.create();
+
+ServerUtils.prototype = {
+    initialize: function() {},
+
+    shouldApplyFilter: function(current) {
+
+        // Never filter background system processes (Jobs, Integrations)
+        if (!gs.getSession().isInteractive()) return false;
+
+        const transaction = GlideTransaction.get();
+
+        if (!transaction) return false;
+
+        const requestURL = transaction.getRequest().getRequestURL().toString();
+
+        // IDENTIFY THE SCENARIO
+        // Scenario A: Standard List View (Usually contains 'incident_list.do')
+        const isList = requestURL.indexOf('_list.do') > -1;
+
+        // Scenario B: Global Search (User typing in the top-right search bar)
+        const isGlobalSearch = requestURL.indexOf('sys_search.do') > -1;
+
+        // Scenario C: Reference Lookup (The magnifying glass)
+        const isLookup = requestURL.indexOf('xmlhttp.do') > -1 &&
+            transaction.getRequestParameter('sysparm_processor') == 'XMLHttpLookup';
+
+        // Apply filtering ONLY if it's a primary list view or global search
+        // We exclude scenarios like 'fetching a single row' or 'distinct counts'
+        return isList || isGlobalSearch || isLookup;
+    },
+
+    getOperation: function(current, previous) {
+        // 1. Check for Query
+        // In a Query trigger, current exists but has no Sys ID and isn't a "New Record"
+        if (!current.getUniqueValue() && !current.isNewRecord()) {
+            return 'query';
+        }
+
+        // 2. Check for Insert
+        if (current.isNewRecord()) {
+            return 'insert';
+        }
+
+        // 3. Check for Delete
+        // isDeleting() is the most reliable flag when operation() is null
+        if (current.isDeleting()) {
+            return 'delete';
+        }
+
+        // 4. Check for Update
+        // If it has a Sys ID, isn't new, and isn't deleting, it must be an update
+        if (current.getUniqueValue() && !current.isDeleting()) {
+            return 'update';
+        }
+
+        return null;
+    },
+
+    type: 'ServerUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 12:17:14</sys_created_on>
+        <sys_id>a1786d8247d80f10a0948c64116d4361</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ServerUtils</sys_name>
+        <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
+        <sys_update_name>sys_script_include_a1786d8247d80f10a0948c64116d4361</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 12:17:14</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>a1786d8247d80f10a0948c64116d4361</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 12:17:14</sys_created_on>
+        <sys_id>b299ed8247d80f10a0948c64116d435e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 12:17:14</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</application>
+        <file_path/>
+        <instance_id>199e5a32ff5c6e5cc812f8e4fc4fd9be</instance_id>
+        <instance_name>dev302496</instance_name>
+        <name>sys_script_include_a1786d8247d80f10a0948c64116d4361</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;
+    &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
+        &lt;access&gt;package_private&lt;/access&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;api_name&gt;global.ServerUtils&lt;/api_name&gt;
+        &lt;caller_access/&gt;
+        &lt;client_callable&gt;false&lt;/client_callable&gt;
+        &lt;description/&gt;
+        &lt;mobile_callable&gt;false&lt;/mobile_callable&gt;
+        &lt;name&gt;ServerUtils&lt;/name&gt;
+        &lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;
+        &lt;script&gt;&lt;![CDATA[var ServerUtils = Class.create();
+
+ServerUtils.prototype = {
+    initialize: function() {},
+
+    shouldApplyFilter: function(current) {
+
+        // Never filter background system processes (Jobs, Integrations)
+        if (!gs.getSession().isInteractive()) return false;
+
+        const transaction = GlideTransaction.get();
+
+        if (!transaction) return false;
+
+        const requestURL = transaction.getRequest().getRequestURL().toString();
+
+        // IDENTIFY THE SCENARIO
+        // Scenario A: Standard List View (Usually contains 'incident_list.do')
+        const isList = requestURL.indexOf('_list.do') &gt; -1;
+
+        // Scenario B: Global Search (User typing in the top-right search bar)
+        const isGlobalSearch = requestURL.indexOf('sys_search.do') &gt; -1;
+
+        // Scenario C: Reference Lookup (The magnifying glass)
+        const isLookup = requestURL.indexOf('xmlhttp.do') &gt; -1 &amp;&amp;
+            transaction.getRequestParameter('sysparm_processor') == 'XMLHttpLookup';
+
+        // Apply filtering ONLY if it's a primary list view or global search
+        // We exclude scenarios like 'fetching a single row' or 'distinct counts'
+        return isList || isGlobalSearch || isLookup;
+    },
+
+    getOperation: function(current, previous) {
+        // 1. Check for Query
+        // In a Query trigger, current exists but has no Sys ID and isn't a "New Record"
+        if (!current.getUniqueValue() &amp;&amp; !current.isNewRecord()) {
+            return 'query';
+        }
+
+        // 2. Check for Insert
+        if (current.isNewRecord()) {
+            return 'insert';
+        }
+
+        // 3. Check for Delete
+        // isDeleting() is the most reliable flag when operation() is null
+        if (current.isDeleting()) {
+            return 'delete';
+        }
+
+        // 4. Check for Update
+        // If it has a Sys ID, isn't new, and isn't deleting, it must be an update
+        if (current.getUniqueValue() &amp;&amp; !current.isDeleting()) {
+            return 'update';
+        }
+
+        return null;
+    },
+
+    type: 'ServerUtils'
+};]]&gt;&lt;/script&gt;
+        &lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2026-04-18 12:17:14&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;a1786d8247d80f10a0948c64116d4361&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;ServerUtils&lt;/sys_name&gt;
+        &lt;sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7"&gt;5bf1b8bd47148b10a0948c64116d43d7&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Server side script practice"&gt;5bf1b8bd47148b10a0948c64116d43d7&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_script_include_a1786d8247d80f10a0948c64116d4361&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2026-04-18 12:17:14&lt;/sys_updated_on&gt;
+    &lt;/sys_script_include&gt;
+    &lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;
+        &lt;id&gt;a1786d8247d80f10a0948c64116d4361&lt;/id&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2026-04-18 12:17:14&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;b299ed8247d80f10a0948c64116d435e&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2026-04-18 12:17:14&lt;/sys_updated_on&gt;
+        &lt;table&gt;sys_script_include&lt;/table&gt;
+        &lt;use_es_latest&gt;true&lt;/use_es_latest&gt;
+    &lt;/sys_es_latest_script&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>1374356760</payload_hash>
+        <record_name>ServerUtils</record_name>
+        <reverted_from/>
+        <source/>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 12:53:51</sys_created_on>
+        <sys_id>9ff17586471c0f10a0948c64116d4348</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19da0a79ab90000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 12:53:51</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>5ff175860d1c0f1018426ab02e517548</update_guid>
+        <update_guid_history>fa7a2d86c4d80f10ea4995bb302cfe8c:530873656,76996146f8d80f1059df5c4b8a69a91c:1518024236</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-18 14:57:05</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>1af859d9c09e4b92b5a43ace218a7e99</sys_id>
+        <sys_metadata>a1786d8247d80f10a0948c64116d4361</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ServerUtils</sys_name>
+        <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
+        <sys_scope_delete display_value="">531a20b8af0f4227aae22cb0599d64f1</sys_scope_delete>
+        <sys_update_name>sys_script_include_a1786d8247d80f10a0948c64116d4361</sys_update_name>
+        <sys_update_version display_value="sys_script_include_a1786d8247d80f10a0948c64116d4361">9ff17586471c0f10a0948c64116d4348</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-18 14:57:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
