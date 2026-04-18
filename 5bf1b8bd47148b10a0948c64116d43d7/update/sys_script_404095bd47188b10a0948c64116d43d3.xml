@@ -29,27 +29,32 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
-	const util = new global.ServerUtils();
-	const action = util.getOperation(current, previous);
+	const appConstants = new global.AppConstants();
+	const requestUtils = new global.RequestUtils();
+	const utils = new global.AppUtils();
+
+	const fieldConfidentialField = appConstants.Incident.Fields.Confidential;
+	const fieldAssignedTo = appConstants.Incident.Fields.AssignedTo;
+
+	const action = requestUtils.getOperation(current, previous);
 	const isActionQuery = action === 'query';
 	const currentUserId = gs.getUserID();
-	const confidentialFieldName = 'u_confidential';
 
-	if(isActionQuery && !util.shouldApplyFilter(current)) 
+	if(isActionQuery && !requestUtils.shouldApplyFilter(current)) 
 		return;
     
 	// const isUserSecOfficer = gs.getUser().getRoles().indexOf('security_officer') > -1;
-	const isUserSecOfficer = gs.getUser().hasRole('security_officer');
+	const isUserSecOfficer = gs.getUser().hasRole(appConstants.Roles.SecurityOfficer);
 
 	if(!isUserSecOfficer) {
 
 		if(isActionQuery)
 			current
-				.addQuery(confidentialFieldName, false)
-				.addOrCondition('assigned_to', currentUserId);
+				.addQuery(fieldConfidentialField, false)
+				.addOrCondition(fieldAssignedTo, currentUserId);
 		
-		else if(current.getValue(confidentialFieldName) == '1') {
-			const idOfuserAssignedToIncident = current.getValue('assigned_to');
+		else if(utils.Convert.ToBoolean(current.getValue(fieldConfidentialField))) {
+			const idOfuserAssignedToIncident = current.getValue(fieldAssignedTo);
 
 			if(!idOfuserAssignedToIncident || idOfuserAssignedToIncident !== currentUserId) {
 				gs.addErrorMessage(gs.getMessage('custom_cannot_update_confidential'));
@@ -66,7 +71,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>404095bd47188b10a0948c64116d43d3</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>Filter confidential incidents</sys_name>
         <sys_overrides/>
         <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
@@ -74,7 +79,7 @@
         <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
         <sys_update_name>sys_script_404095bd47188b10a0948c64116d43d3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-04-18 00:00:18</sys_updated_on>
+        <sys_updated_on>2026-04-18 15:53:29</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
