@@ -31,7 +31,15 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
-	// if(gs.getUser().hasRole())
+	const appConstants = new global.AppConstants();
+	
+	if(gs.getUser().hasRole( appConstants.RoleSecurityOfficer ))
+		return;
+	
+	if(current[appConstants.FieldAssignedTo]?.nil()) {
+		gs.addErrorMessage();
+		current.setAbortAction(true);
+	}
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -40,7 +48,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>19ff6942471c0f10a0948c64116d43ef</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>STRY0012717 Make AssignedTo mandatory</sys_name>
         <sys_overrides/>
         <sys_package display_value="Server side script practice" source="5bf1b8bd47148b10a0948c64116d43d7">5bf1b8bd47148b10a0948c64116d43d7</sys_package>
@@ -48,7 +56,7 @@
         <sys_scope display_value="Server side script practice">5bf1b8bd47148b10a0948c64116d43d7</sys_scope>
         <sys_update_name>sys_script_19ff6942471c0f10a0948c64116d43ef</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-04-18 12:52:20</sys_updated_on>
+        <sys_updated_on>2026-04-18 13:16:02</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
